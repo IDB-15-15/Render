@@ -1,8 +1,8 @@
-#include "TagDl.h"
+#include "TagDl.hpp"
 
 namespace Render
 {
-    TagDL::TagDl(const Parser::Tree::Tag &parsTag, QWidget* parent)
+    TagDl::TagDl(const Parser::Tree::Tag &parsTag, QWidget* parent)
     {
 
     }

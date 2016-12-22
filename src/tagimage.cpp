@@ -15,7 +15,10 @@ TagImage::TagImage(const Parser::Tree::Tag &parsTag, QWidget* parent)
         resarr = res.res_arr;
         const unsigned char* data = reinterpret_cast<const unsigned char*>(resarr);
         len = res.size;
-        loadFromData(data, len, nullptr, Qt::AutoColor);
+        QPixmap pixmap;
+        pixmap.loadFromData(data, len, nullptr, Qt::AutoColor);
+        QLabel* image = new QLabel();
+        image->setPixmap(pixmap);
     }
     catch (const std::exception &e)
     {

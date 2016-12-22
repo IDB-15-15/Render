@@ -34,6 +34,9 @@ QWidget* render(boost::variant<Parser::Tree::Tag, Parser::Tree::Text> root)
                             if (pair.first.which() == 0)
                             {
                                 const Parser::Tree::Tag &tag = boost::get<Parser::Tree::Tag>(pair.first);
+
+                                qDebug() << "tag name" << tag.name.c_str();
+
                                 try
                                 {
                                     parent = modulsystem.generateTag(tag, pair.second);

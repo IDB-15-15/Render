@@ -4,11 +4,12 @@
 #include <parser.h>
 #include <QWidget>
 #include "parsernode.hpp"
-#include <QPixmap>
+#include <QLabel>
+#include <QLayout>
 
 namespace Render{
 
-class TagImage: public QPixmap
+class TagImage: public QLabel
 {
     Q_OBJECT
 public:

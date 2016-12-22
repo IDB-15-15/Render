@@ -7,7 +7,7 @@ if ! [ qt5.initialized ]
 
 
 lib Renderlib
-	: [ glob-tree *.cpp *.hpp : main* ] ../../Parser /qt5//QtGui /qt5//QtWidgets
+	: [ glob-tree *.cpp *.hpp : main* ] ../../Parser ../../Network /qt5//QtGui /qt5//QtWidgets
 	: <link>static
 	: <variant>release
 	;
