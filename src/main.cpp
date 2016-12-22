@@ -5,16 +5,8 @@
 #include "tagtable.hpp"
 #include "parsernode.hpp"
 #include "text.hpp"
-#include "taga.h"
-
-#include <QScrollArea>
-#include <QVBoxLayout>
-#include <QSpinBox>
-#include <QPushButton>
-#include <QGridLayout>
+#include "taga.hpp"
 #include <QApplication>
-#include <iostream>
-#include <string>
 
 int main(int argc, char *argv[])
 {

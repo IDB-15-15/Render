@@ -9,10 +9,14 @@ use-project boost : $(BOOST_ROOT) ;
 
 
 project Renrerlib
-	: requirements <link>static <threading>multi <include>$(BOOST_ROOT) <include>../Parser/src
-	: default-build <variant>release
-	: build-dir build
-	;
+	
+: requirements <link>static <threading>multi <include>$(BOOST_ROOT) <include>../Parser/src
+ <include>../Network/src	
+: default-build <variant>release
+	
+: build-dir build
+	
+;
 
 
 build-project src ;
