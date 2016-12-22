@@ -8,17 +8,16 @@ TagImg::TagImg(const Parser::Tree::Tag &parsTag, QWidget* parent)
 {
     const char* resarr;
     int len;
-    auto adres = parsTag.attributes.at("img");
     try
-    {
+    {        
+        auto adres = parsTag.attributes.at("src");
         auto res = Network::give_result(adres);
         resarr = res.res_arr;
         const unsigned char* data = reinterpret_cast<const unsigned char*>(resarr);
         len = res.size;
         QPixmap pixmap;
         pixmap.loadFromData(data, len, nullptr, Qt::AutoColor);
-        QLabel* image = new QLabel();
-        image->setPixmap(pixmap);
+        this->setPixmap(pixmap);
     }
     catch (const std::exception &e)
     {
