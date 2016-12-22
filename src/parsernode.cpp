@@ -1,12 +1,13 @@
 #include "parsernode.hpp"
-#include <stack>
+#include <queue>
 #include <map>
 #include "modulsystem.hpp"
+#include <QDebug>
 
 QWidget* render(boost::variant<Parser::Tree::Tag, Parser::Tree::Text> root)
 {
     Render::ModulSystem modulsystem;
-    std::stack<std::pair<boost::variant<Parser::Tree::Tag, Parser::Tree::Text>, QWidget*>> stack;
+    std::queue<std::pair<boost::variant<Parser::Tree::Tag, Parser::Tree::Text>, QWidget*>> queue;
     QWidget* parent;
     QWidget* ret = nullptr;
 
@@ -24,11 +25,11 @@ QWidget* render(boost::variant<Parser::Tree::Tag, Parser::Tree::Text> root)
 
                     if (firstTag.name == "body")
                     {
-                        stack.push(std::make_pair(childs, nullptr));
-                        while (!stack.empty())
+                        queue.push(std::make_pair(childs, nullptr));
+                        while (!queue.empty())
                         {
-                            std::pair<boost::variant<Parser::Tree::Tag, Parser::Tree::Text>, QWidget*> pair = stack.top();
-                            stack.pop();
+                            std::pair<boost::variant<Parser::Tree::Tag, Parser::Tree::Text>, QWidget*> pair = queue.front();
+                            queue.pop();
 
                             if (pair.first.which() == 0)
                             {
@@ -40,12 +41,13 @@ QWidget* render(boost::variant<Parser::Tree::Tag, Parser::Tree::Text> root)
                                 catch (const std::out_of_range &)
                                 {
                                     // tag to text
+                                   qDebug() << tag.name.c_str();
                                 }
 
                                 if (pair.second == nullptr)
                                     ret = parent;
                                 for (const auto &child : tag.children)
-                                    stack.push(std::make_pair(child, parent));
+                                    queue.push(std::make_pair(child, parent));
                             }
                             else
                             {

@@ -4,6 +4,7 @@
 #include "tagimage.hpp"
 #include "tagtable.hpp"
 #include "text.hpp"
+#include "taga.h"
 
 namespace Render{
 
@@ -19,6 +20,7 @@ ModulSystem::ModulSystem()
     modulSystem.emplace("bodybcolor", f<TagBodybColor>);
     modulSystem.emplace("image", f<TagImage>);
     modulSystem.emplace("table", f<TagTable>);
+    modulSystem.emplace("a", f<TagA>);
 }
 
 QWidget* ModulSystem::generateTag(const Parser::Tree::Tag &parsTag, QWidget* parent)

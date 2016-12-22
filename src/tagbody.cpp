@@ -4,6 +4,8 @@ namespace Render{
 
 TagBody::TagBody(const Parser::Tree::Tag &parsTag, QWidget* parent)
 {
-    QVBoxLayout *layout = new QVBoxLayout(parent);
+    new QVBoxLayout(this);
+    if (parent != nullptr)
+        parent->layout()->addWidget(this);
 }
 }
