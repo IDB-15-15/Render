@@ -4,7 +4,7 @@
 
 namespace Render{
 
-TagImage::TagImage(const Parser::Tree::Tag &parsTag, QWidget* parent)
+TagImg::TagImg(const Parser::Tree::Tag &parsTag, QWidget* parent)
 {
     const char* resarr;
     int len;

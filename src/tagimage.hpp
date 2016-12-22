@@ -9,11 +9,11 @@
 
 namespace Render{
 
-class TagImage: public QLabel
+class TagImg: public QLabel
 {
     Q_OBJECT
 public:
-    TagImage(const Parser::Tree::Tag &parsTag, QWidget* parent);
+    TagImg(const Parser::Tree::Tag &parsTag, QWidget* parent);
 };
 }
 

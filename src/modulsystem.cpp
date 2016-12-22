@@ -18,7 +18,7 @@ ModulSystem::ModulSystem()
 {
     modulSystem.emplace("body", f<TagBody>);
     modulSystem.emplace("bodybcolor", f<TagBodybColor>);
-    modulSystem.emplace("img", f<TagImage>);
+    modulSystem.emplace("img", f<TagImg>);
     modulSystem.emplace("table", f<TagTable>);
     modulSystem.emplace("a", f<TagA>);
 }
