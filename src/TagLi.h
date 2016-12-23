@@ -7,11 +7,11 @@
 
 namespace Render
 {
-     class TagUl: public QWidget
+     class TagLi: public QWidget
      {
          Q_OBJECT
      public:
-         TagDl(const Parser::Tree::Tag &parsTag,QWidget* parent);
+         TagLi(const Parser::Tree::Tag &parsTag,QWidget* parent);
      };
 }
 
