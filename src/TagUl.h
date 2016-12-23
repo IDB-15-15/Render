@@ -11,7 +11,7 @@ namespace Render
      {
          Q_OBJECT
      public:
-         TagDl(const Parser::Tree::Tag &parsTag,QWidget* parent);
+         TagUl(const Parser::Tree::Tag &parsTag,QWidget* parent);
      };
 }
 
