@@ -1,8 +1,10 @@
-#include "parsernode.hpp"
+#include "render.hpp"
 #include <queue>
 #include <map>
 #include "modulsystem.hpp"
 #include <QDebug>
+
+namespace Render{
 
 QWidget* render(boost::variant<Parser::Tree::Tag, Parser::Tree::Text> root)
 {
@@ -73,4 +75,6 @@ QWidget* render(boost::variant<Parser::Tree::Tag, Parser::Tree::Text> root)
     }
 
     return ret;
+}
+
 }

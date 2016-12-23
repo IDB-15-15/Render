@@ -1,5 +1,5 @@
 #include "tagimage.hpp"
-#include "NETWORK.h"
+#include <NETWORK.h>
 #include <QDebug>
 
 namespace Render{
@@ -21,7 +21,7 @@ TagImg::TagImg(const Parser::Tree::Tag &parsTag, QWidget* parent)
     }
     catch (const std::exception &e)
     {
-         qDebug() << "Image not found" << e.what();;
+         qDebug() << "Image not found" << e.what();
     }
     if (parent != nullptr && parent->layout() != nullptr)
         parent->layout()->addWidget(this);

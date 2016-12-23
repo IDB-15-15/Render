@@ -3,7 +3,7 @@
 
 #include <parser.h>
 #include <QWidget>
-#include "parsernode.hpp"
+#include "render.hpp"
 #include <QLabel>
 #include <QLayout>
 

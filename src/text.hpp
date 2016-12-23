@@ -2,7 +2,7 @@
 #define TEXT_H
 #include <parser.h>
 #include <QWidget>
-#include "parsernode.hpp"
+#include "render.hpp"
 #include <QLabel>
 
 namespace Render{

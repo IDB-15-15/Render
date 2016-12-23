@@ -4,7 +4,7 @@
 #include <parser.h>
 #include <QWidget>
 #include <QVBoxLayout>
-#include "parsernode.hpp"
+#include "render.hpp"
 #include "boost/lexical_cast.hpp"
 
 namespace Render{
