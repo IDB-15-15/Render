@@ -2,7 +2,7 @@
 
 namespace Render
 {
-      TagUl::TagUl(const Parser::Tree::Tag &parsTag, QWidget* parent)
+      TagLi::TagLi(const Parser::Tree::Tag &parsTag, QWidget* parent)
       {
 
       }
