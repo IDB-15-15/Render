@@ -1,10 +1,4 @@
 #include "modulsystem.hpp"
-#include "tagbody.hpp"
-#include "tagbodybcolor.hpp"
-#include "tagimage.hpp"
-#include "tagtable.hpp"
-#include "text.hpp"
-#include "taga.hpp"
 
 namespace Render{
 

@@ -3,7 +3,10 @@
 
 #include <parser.h>
 #include <QWidget>
+#include <QVBoxLayout>
 #include "render.hpp"
+#include "boost/lexical_cast.hpp"
+#include <QLabel>
 
 namespace Render{
 

@@ -6,7 +6,12 @@
 #include <memory>
 #include <QWidget>
 #include "render.hpp"
-
+#include "tagbody.hpp"
+#include "tagbodybcolor.hpp"
+#include "tagimage.hpp"
+#include "tagtable.hpp"
+#include "text.hpp"
+#include "taga.hpp"
 
 namespace Render{
 
