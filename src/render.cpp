@@ -35,9 +35,7 @@ QWidget* render(boost::variant<Parser::Tree::Tag, Parser::Tree::Text> root)
 
                             if (pair.first.which() == 0)
                             {
-                                const Parser::Tree::Tag &tag = boost::get<Parser::Tree::Tag>(pair.first);
-
-                                qDebug() << "tag name" << tag.name.c_str();
+                                Parser::Tree::Tag &tag = boost::get<Parser::Tree::Tag>(pair.first);
 
                                 try
                                 {
@@ -45,8 +43,9 @@ QWidget* render(boost::variant<Parser::Tree::Tag, Parser::Tree::Text> root)
                                 }
                                 catch (const std::out_of_range &)
                                 {
-                                    // tag to text
-                                   qDebug() << tag.name.c_str();
+                                    Parser::Tree::Text toText = tag.to_text();
+                                    std::string textString(toText.value, toText.size);
+                                    parent = modulsystem.generateText(textString, pair.second);
                                 }
 
                                 if (pair.second == nullptr)
@@ -57,9 +56,8 @@ QWidget* render(boost::variant<Parser::Tree::Tag, Parser::Tree::Text> root)
                             else
                             {
                                 const Parser::Tree::Text &text = boost::get<Parser::Tree::Text>(pair.first);
-                                std::string myString(text.value, text.size);
-                                parent = modulsystem.generateText(myString, pair.second);
-                                std::cout << "text: " << myString << std::endl;
+                                std::string textString(text.value, text.size);
+                                parent = modulsystem.generateText(textString, pair.second);
                             }
                         }
                     }

@@ -1,5 +1,5 @@
 #include "tagimage.hpp"
-#include <NETWORK.h>
+#include <network.h>
 #include <QDebug>
 
 namespace Render{
