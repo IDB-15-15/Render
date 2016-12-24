@@ -5,6 +5,7 @@
 #include <parser.h>
 #include "boost/variant.hpp"
 #include <QWidget>
+#include <string>
 
 namespace Render{
 

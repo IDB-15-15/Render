@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "render.hpp"
 #include <QLabel>
+#include <string>
 
 namespace Render{
 
@@ -11,7 +12,7 @@ class Text: public QLabel
 {
     Q_OBJECT
 public:
-    Text(const Parser::Tree::Text &parsText, QWidget* parent);
+    Text(std::string &parsText, QWidget* parent);
 };
 }
 

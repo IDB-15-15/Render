@@ -12,6 +12,7 @@
 #include "tagtable.hpp"
 #include "text.hpp"
 #include "taga.hpp"
+#include <string>
 
 namespace Render{
 
@@ -21,7 +22,7 @@ public:
     ModulSystem();
     std::map <std::string, std::function <QWidget* (const Parser::Tree::Tag &, QWidget*)>> modulSystem;
     QWidget* generateTag(const Parser::Tree::Tag &parsTag, QWidget* parent);
-    QWidget* generateText(const Parser::Tree::Text &parsText, QWidget* parent);
+    QWidget* generateText(std::string &parsText, QWidget* parent);
 };
 }
 

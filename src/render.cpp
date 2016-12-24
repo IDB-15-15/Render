@@ -57,7 +57,9 @@ QWidget* render(boost::variant<Parser::Tree::Tag, Parser::Tree::Text> root)
                             else
                             {
                                 const Parser::Tree::Text &text = boost::get<Parser::Tree::Text>(pair.first);
-                                parent = modulsystem.generateText(text, pair.second);
+                                std::string myString(text.value, text.size);
+                                parent = modulsystem.generateText(myString, pair.second);
+                                std::cout << "text: " << myString << std::endl;
                             }
                         }
                     }
@@ -71,7 +73,7 @@ QWidget* render(boost::variant<Parser::Tree::Tag, Parser::Tree::Text> root)
        // all page to text
 
         const Parser::Tree::Tag &text = boost::get<Parser::Tree::Tag>(root);
-        ret = modulsystem.generateText(text.name, nullptr);
+        ret = modulsystem.generateTag(text, nullptr);
     }
 
     return ret;

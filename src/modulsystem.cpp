@@ -24,7 +24,7 @@ QWidget* ModulSystem::generateTag(const Parser::Tree::Tag &parsTag, QWidget* par
     return generate;
 }
 
-QWidget* ModulSystem::generateText(const Parser::Tree::Text &parsText, QWidget* parent)
+QWidget* ModulSystem::generateText(std::string &parsText, QWidget* parent)
 {
     QWidget* generate = new Text(parsText, parent);
     return generate;
