@@ -56,7 +56,7 @@ QWidget* render(boost::variant<Parser::Tree::Tag, Parser::Tree::Text> root)
                             else
                             {
                                 const Parser::Tree::Text &text = boost::get<Parser::Tree::Text>(pair.first);
-                                std::string textString(text.value, text.size);
+                                std::string textString = text.str;
                                 parent = modulsystem.generateText(textString, pair.second);
                             }
                         }

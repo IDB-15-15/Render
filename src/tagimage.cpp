@@ -12,12 +12,15 @@ TagImg::TagImg(const Parser::Tree::Tag &parsTag, QWidget* parent)
     {        
         auto adres = parsTag.attributes.at("src");
         auto res = Network::give_result(adres);
-        resarr = res.res_arr;
-        const unsigned char* data = reinterpret_cast<const unsigned char*>(resarr);
-        len = res.size;
-        QPixmap pixmap;
-        pixmap.loadFromData(data, len, nullptr, Qt::AutoColor);
-        this->setPixmap(pixmap);
+        if (!res.error)
+        {
+            resarr = res.res_arr;
+            const unsigned char* data = reinterpret_cast<const unsigned char*>(resarr);
+            len = res.size;
+            QPixmap pixmap;
+            pixmap.loadFromData(data, len, nullptr, Qt::AutoColor);
+            this->setPixmap(pixmap);
+        }
     }
     catch (const std::exception &e)
     {
