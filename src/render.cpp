@@ -66,12 +66,21 @@ QWidget* render(boost::variant<Parser::Tree::Tag, Parser::Tree::Text> root)
         }
     }
 
-    else
+    if (ret == nullptr)
     {
-       // all page to text
-
-        const Parser::Tree::Tag &text = boost::get<Parser::Tree::Tag>(root);
-        ret = modulsystem.generateTag(text, nullptr);
+        if (root.which() == 0)
+        {
+            Parser::Tree::Tag &firstNode = boost::get<Parser::Tree::Tag>(root);
+            Parser::Tree::Text toText = firstNode.to_text();
+            std::string textString(toText.value, toText.size);
+            ret = modulsystem.generateText(textString, nullptr);
+        }
+        else
+        {
+            const Parser::Tree::Text &text = boost::get<Parser::Tree::Text>(root);
+            std::string textString = text.str;
+            ret = modulsystem.generateText(textString, nullptr);
+        }
     }
 
     return ret;
